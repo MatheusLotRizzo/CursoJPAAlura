@@ -14,13 +14,13 @@ import br.com.alura.loja.util.JPAUtil;
 public class CadastroDeProduto {
 
 	public static void main(String[] args) {
-		cadastrarProduto();
+		//cadastrarProduto();
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		ProdutoDao produtoDao = new ProdutoDao(em);
 		
-		Produto p = produtoDao.buscarPorID(3l);
-		System.out.println(p.getNome());
+		Produto p = new Produto();
+		/*System.out.println(p.getNome());*/
 		
 		List<Produto> todosProdutos = produtoDao.buscarTodos();
 		todosProdutos.forEach(p2 -> System.out.println(p.getNome()));
@@ -35,6 +35,7 @@ public class CadastroDeProduto {
 		System.out.println("Preco do Produto: " +precoDoProduto);
 	}
 
+	@SuppressWarnings("unused")
 	private static void cadastrarProduto() {
 		Categoria celulares = new Categoria("CELULARES");
 		Produto celular = new Produto("S20 FE","128 gb 6 gb de Ram", new BigDecimal(2000) ,celulares);
